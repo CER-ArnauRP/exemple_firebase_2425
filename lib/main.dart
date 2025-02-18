@@ -1,7 +1,15 @@
+import 'package:exemple_firebase_2425/firebase_options.dart';
 import 'package:exemple_firebase_2425/pagines/pagina_registre.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MainApp());
 }
 
@@ -55,4 +63,9 @@ class MainApp extends StatelessWidget {
     
     - La ruta per defecte és:
         C:\Users\<nom_usuari>\AppData\Local\Pub\Cache\bin
+    
+8) Instal·lem les dependències de Firebase que vulguem utilitzar:
+    - flutter pub add firebase_core
+    - flutter pub add firebase_auth
+    (amb això, marxen els errors de firebase_options.dart)
 */
